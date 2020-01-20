@@ -1,3 +1,5 @@
+CREATE DATABASE IF NOT EXIST sncf;
+
 CREATE TABLE IF NOT EXISTS gare (
     codegare int NOT NULL AUTO_INCREMENT PRIMARY KEY ,
     nom varchar(50) NOT NULL,
@@ -27,6 +29,10 @@ CREATE TABLE IF NOT EXISTS trajet(
     garearrivee int NOT NULL FOREIGN KEY references gare(codegare),
     conducteur int NOT NULL FOREIGN KEY references conducteur(codeconducteur),
     rame int NOT NULL FOREIGN KEY references rame(coderame),
-    depart date NOT NULL,
+    depart datetime NOT NULL,
     duree TIME
 );
+
+
+CREATE USER IF NOT EXIST 'user'@'%' IDENTIFIED BY 'user';
+GRANT ALL PRIVILEGES ON *.* TO 'user'@'%';

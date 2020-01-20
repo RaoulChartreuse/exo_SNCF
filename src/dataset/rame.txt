@@ -1,0 +1,21 @@
+# rame
+# coderame, modele, npremiere, nseconde
+1, standard, 100, 50
+2, standard, 100, 50
+3, standard, 100, 50
+4, standard, 100, 50
+5, standard, 100, 50
+6, standard, 100, 50
+7, standard, 100, 50
+8, standard, 100, 50
+9, standard, 100, 50
+10, double, 300, 100
+11, double, 300, 100
+12, double, 300, 100
+13, double, 300, 100
+14, double, 300, 100
+15, double, 300, 100
+16, double, 300, 100
+17, double, 300, 100
+18, double, 300, 100
+19, double, 300, 100

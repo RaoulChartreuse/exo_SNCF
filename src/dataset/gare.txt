@@ -1,0 +1,14 @@
+#Gare
+# codegare, nom, ville, addresse, nquai
+1, "Gare de Lyon", "Paris", "", 36
+2, "Gare de l'est", "Paris, "", 24
+3, "Gare du nord", "Paris", "", 30
+4, "Gare Part Dieu", "Lyon", "", 10
+5, "Gare Perrache", "Lyon", "", 8
+6, "Gare de Grenoble", "Grenoble", "", 4
+7, "Gare de Lille", "Lille", "", 10
+8, "Gare de St Charles", "Marseille", "", 7
+9, "Gare de Lille", "Lille", "", 41
+10, "Gare de Strasbourg", "Strasbourg", "", 4
+11, "Gare d'amiens", "Amiens", "", 2
+
