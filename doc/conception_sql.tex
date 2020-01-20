@@ -1,0 +1,44 @@
+\section{Conception SQL}
+\subsection{Trajet}
+\begin{itemize}
+\item codeTrajet : entier autoincrement et clée primaire
+\item gareDepart : entier clé primaire de l'objet Gare
+\item gareArrivee : entier clé primaire de l'objet Gare
+\item conducteur : entier clé primaire de l'objet Conducteur
+\item Rame : entier clé primaire de l'objet Rame
+\item date : type DATE
+\item duree : type TIME
+\end{itemize}
+
+\subsection{Gare}
+\begin{itemize}
+\item codeGare : entier autoincrement et clée primaire
+\item nom : VARCHAR(50)
+\item Ville : VARCHAR(50)
+\item addresse : VARCHAR(250)
+  item Nquai : entier
+\end{itemize}
+
+\subsection{Rame}
+\begin{itemize}
+\item codeRame : entier autoincrement et clée primaire
+\item type : VARCHAR(10) (code interne potentiellement à une autre table de description)
+\item nPremiere : entier
+\item nSeconde : entier
+\end{itemize}
+
+
+\subsection{Conducteur}
+\begin{itemize}
+\item codeConducteur : entier autoincrement et clée primaire
+\item nom : VARCHAR(50)
+\item prenom : VARCHAR(50)
+\item secu : VARCHAR(13) 
+\end{itemize}
+
+
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

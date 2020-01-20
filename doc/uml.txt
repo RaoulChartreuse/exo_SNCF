@@ -1,0 +1,39 @@
+@startuml
+scale 800 width
+
+object Gare
+Gare : codeGare
+Gare : nom
+Gare : ville
+Gare : addresse
+Gare : nQuai
+
+object Rame
+Rame : codeRame
+Rame : type
+Rame : nPremiere
+Rame : nSeconde
+
+
+object Conducteur
+Conducteur : codeConducteur
+Conducteur : nom
+Conducteur : prenom
+Conducteur : secu
+
+object Trajet
+Trajet : codeTrajet
+Trajet : gareDepart
+Trajet : gareArrivee
+Trajet : date
+Trajet : duree
+Trajet : conducteur
+Trajet : rame
+
+
+Trajet *-- Gare
+Trajet *-- Rame
+Trajet *-- Conducteur
+
+
+@enduml

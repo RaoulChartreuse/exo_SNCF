@@ -1,0 +1,52 @@
+\section{Cahier des charges}
+Nous souhaitons réaliser un site web pour afficher la liste des TGV disponible
+classés par ordre croissant de date de départ.
+
+Un TGV est identifié par un numéro (par exemple 6440) et possède une ville de
+départ et une ville d’arrivée, un horaire de départ et une durée (et par conséquent
+une date d’arrivée).
+
+Ce projet devra être réalisé avec la technologie php/mysql. Le serveur web devra
+proposer $php >5.6$ et la base de données devra être idéalement a la version mysql
+5.7.
+
+Nous nous situons plutôt dans le contexte des devops ou nous devons proposer la
+plateforme suivante :
+
+\subsection{Sur poste windows :}
+installer easyphp ou wamp ainsi que visual studio code (ou
+tout IDE qui vous convient). A chaque fois ou on juge que notre travail est “stable”,
+nous devons faire un push sur la branche git dev de notre repository git.
+
+Notre pipeline est composé de deux stages : dev et prod
+
+\subsection{Dans le stage dev :}
+nous nous limitons à un serveur linux contenant un httpd/php
+et mysql. Ce serveur doit toujours proposer toujours la version la plus à jours sur la
+branche dev.
+
+\subsection{Dans le stage prod :}
+\begin{itemize}
+  \item Dans ce stage, nous devons proposer une architecture hautement disponible
+qui doit être composée d’un minimum de deux clones des composants
+informatiques pour assurer la tolérance aux pannes
+  \item Dans ce stage, nous devons déployer la dernière version de la branche
+    master de git sur la plateforme du stage prod.
+  \item Prévoir une solution pour que votre infrastructure soit extensible, i.e, dans le
+cas ou on se rend compte qu’il y aurait une surchage des serveurs, nous devons mettre à échelle (scaling) notre architecture en un temps
+relativement court.
+\end{itemize}
+
+\subsection{Votre mission :}
+● Concevoir le diagramme UML de l‘application
+● Concevoir et implémenter la base de données
+● Insérer un jeu de données des tests
+● exporter le schéma (et uniquement le schéma) dans un fichier sql
+● développer un fichier html statique qui affiche un message de bienvenu
+● Créer un repository git et faites un “push” initial des fichiers html et sql
+● La suite des tâches dépendent de votre conception de la solution conçue
+
+%%% Local Variables:
+%%% mode: latex
+%%% TeX-master: t
+%%% End:

@@ -1,0 +1,58 @@
+%% Informations générales
+\NeedsTeXFormat{LaTeX2e}[1999/01/01]
+\ProvidesPackage{mon_style}[2016/08/17]
+
+%%Chargement des extensions
+\RequirePackage{hyperref}
+\addtocounter{tocdepth}{-1}
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[francais]{babel}
+\RequirePackage[T1]{fontenc}
+
+\RequirePackage{amsmath}
+\RequirePackage{amsfonts}
+\RequirePackage{amssymb}
+
+%\usepackage{mathptmx}%Pour times en sherif
+\RequirePackage{lmodern}
+\RequirePackage[scaled=.90]{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+%Pour la chimie et la physique nucléaire
+\RequirePackage{chemfig}
+\RequirePackage{circuitikz}
+\RequirePackage{eurosym}
+
+%Pour les th encadrés
+\RequirePackage[theorems]{tcolorbox}
+\tcbsetforeverylayer{colback=white,colframe=blue!65!black,fonttitle=\bfseries}
+
+\RequirePackage{tikz}
+\usetikzlibrary{calc,backgrounds}
+\usetikzlibrary{patterns}%Pour les hachure 
+
+
+\RequirePackage{graphicx}
+
+
+\newcommand \dd[1]  { \,\textrm d{#1}                       }   % infintesimal
+\newcommand \de[2]  { \frac{\mathrm d{#1}}{\mathrm d{#2}}   }
+\newcommand \dpp[2]  { \frac{\mathrm D{#1}}{\mathrm D{#2}}   } %dérivé particulaire
+\newcommand \dre[2]  { \frac{\mathrm \partial{#1}}{\mathrm \partial{#2}} }
+\newcommand \drf[3] {\left(\frac{\mathrm \partial{#1}}{\mathrm \partial{#2}} \right)_{#3}} %d rond avec Fixé
+
+
+%\newcommand \res[2] {\,#1\,{\mathrm #2}}
+\newcommand \res[3] {\,#1\cdot 10^{#2}\,{\mathrm #3}}
+\newcommand \vect[1] {\overrightarrow{#1} }
+\newcommand \complex[1] {\underline{#1} }
+
+
+\newcommand \moy[1] {\left<\,  #1 \,\right>}
+\newcommand \E {\mathcal{E}}
+
+%Pour le code
+\definecolor{light-gray}{gray}{0.95}
+\newcommand{\code}[1]{\colorbox{light-gray}{\texttt{#1}}}
+%% Fin du package
+\endinput
