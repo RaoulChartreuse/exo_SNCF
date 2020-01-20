@@ -10,7 +10,7 @@ Gare : nQuai
 
 object Rame
 Rame : codeRame
-Rame : type
+Rame : modele
 Rame : nPremiere
 Rame : nSeconde
 
@@ -25,12 +25,13 @@ object Trajet
 Trajet : codeTrajet
 Trajet : gareDepart
 Trajet : gareArrivee
-Trajet : date
+Trajet : depart
 Trajet : duree
 Trajet : conducteur
 Trajet : rame
 
 
+Trajet *-- Gare
 Trajet *-- Gare
 Trajet *-- Rame
 Trajet *-- Conducteur
