@@ -10,6 +10,11 @@
         upgrade: yes
         update_cache: yes
 
+    - name: Install docker
+      apt:
+        name:
+          - docker.io
+
     - name: copy install script
       copy:
         src=./src/bash/install_minikube.sh
