@@ -32,3 +32,26 @@ spec:
       - name: mysql-persistent-storage
         persistentVolumeClaim:
           claimName: db-pv-claim
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  labels:
+    app: web
+spec:
+  replicas: 3
+  selector:
+      matchLabels:
+        app: web
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - image: laurentmorin/exo_sncf_httpdserver
+        name: web
+        ports:
+        - containerPort: 80
