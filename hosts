@@ -1,0 +1,9 @@
+
+[prod]
+Prod1 ansible_host=10.69.8.77
+
+
+[prod:vars]
+ansible_sudo_pass=laurent
+ansible_remote_user=laurent
+ansible_sudo=yes

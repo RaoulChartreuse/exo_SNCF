@@ -1,0 +1,27 @@
+
+- name : Install minikube
+  hosts: prod
+  become: true
+  become_user : root
+  become_method: sudo
+  tasks:
+    - name: Update and upgrade system
+      apt:
+        upgrade: yes
+        update_cache: yes
+
+    - name: copy install script
+      copy:
+        src=./src/bash/install_minikube.sh
+        dest=/tmp/install_minikube.sh
+        owner=root
+         group=root
+         mode=744
+      
+
+    - name: Install kubctl
+      command: /tmp/install_minikube.sh
+        
+
+
+
