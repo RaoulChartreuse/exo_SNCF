@@ -1,5 +1,3 @@
-# rame
-# coderame, modele, npremiere, nseconde
 1, standard, 100, 50
 2, standard, 100, 50
 3, standard, 100, 50
