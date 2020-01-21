@@ -16,12 +16,16 @@ spec:
         app: db
     spec:
       containers:
-      - image: laurentmorin/exo_sncf_db
+      - image: laurentmorin/exo_sncf_db:1
         name: mysql
         env:
           # Use secret in real usage
         - name: MYSQL_ROOT_PASSWORD
           value: root
+        - name: MYSQL_USER
+          value: "user"
+        - name: MYSQL_PASSWORD
+          value: "user"
         ports:
         - containerPort: 3306
           name: mysql
