@@ -50,6 +50,7 @@ spec:
       labels:
         app: web
     spec:
+
       containers:
       - image: laurentmorin/exo_sncf_httpdserver
         name: web
