@@ -1,0 +1,24 @@
+\section{Automatisation de la machine de dev}
+Le principe de cette automatisation est d'utiliser des conteurs docker qui vont être réutilisé par kubernetes.
+
+\subsection{Ecriture des dockerfile}
+Les dockerfiles sont simples.
+Pour le serveur appache ont utilise seulement un serveur php-apache en verision 7.2. La seul modification est l'ajout du driver mysqli et du code php.
+
+\lstinputlisting[]{../src/dockerfile_web}
+
+Pour la base de donnée on part de la denière version du conteneur mariadb, et on copie les scripts pour initialiser la base de donnée.
+
+\lstinputlisting[]{../src/dockerfile_db}
+
+\subsection{Docker-compose}
+Les conteneurs sont déployés localement grace à docker-compose.
+
+\lstinputlisting[]{../docker-compose.yml}
+
+\subsection{Deploiment continue avec Jenkins}
+Sur le serveur d'integration on a un serveur Jenkins qui nous permets de metre en place un job qui surveille git.
+Pour chaque mise à jour de la branch dev, mets à jours de docker-compose de la machine de dev.
+Ce qui permets à la machine de dev d'être toujours à jours.
+
+\lstinputlisting[]{../src/jenkins/dev.sh}
