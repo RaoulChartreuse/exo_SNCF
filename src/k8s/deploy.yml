@@ -56,7 +56,7 @@ spec:
     spec:
 
       containers:
-      - image: laurentmorin/exo_sncf_httpdserver
+      - image: laurentmorin/exo_sncf_httpdserver:1
         name: web
         ports:
         - containerPort: 80
