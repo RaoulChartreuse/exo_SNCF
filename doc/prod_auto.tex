@@ -1,0 +1,17 @@
+\section{Automatisation du serveur de prod}
+Le principe de ce serveur est d'utiliser les conteneurs du serveur dev un fois ceux-ci valider.
+Et de les utiliser avec kubernetes.
+
+\subsection{Installation de minikube et kubectl avec ansible}
+L'installation de minikube et kubectl est obtenue avec  un playbook ansible qui est lancé une seul fois par machine.
+
+\lstinputlisting[language=bash]{../src/bash/install_minikube.sh}
+
+\subsection{Configuration de kubernetes}
+Le pod php-apache peut contacter la base de donnée en utilisant la variable servername=db.
+
+\lstinputlisting[language=php]{../src/php/configDb.php}
+
+{\LARGE A faire}
+
+L'utilisateur user n'existe plus dans la base de donnée !
