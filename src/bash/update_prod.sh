@@ -8,3 +8,4 @@ kustomize edit set image laurentmorin/exo_sncf_db:$(git log -n 1 --pretty=format
 kustomize edit set image laurentmorin/exo_sncf_httpdserver:$(git log -n 1 --pretty=format:"%H")
 
 kustomize build . | sudo kubectl apply -f -
+cd ../..
