@@ -9,10 +9,10 @@
     <p>
 
         <label for="pseudo">Prenom :</label>
-        <input type="text" name="prenom" id="prenom" placeholder="Votre Prenom" size="30" maxlength="10" />
+        <input type="text" name="ville" id="ville" placeholder="Ville" size="30" maxlength="10" />
 
         <label for="pseudo">Nom :</label>
-        <input type="text" name="nom" id="nom" placeholder="Votre Nom" size="30" maxlength="10" /><br/>
+        <input type="text" name="nom" id="nom" placeholder="Nom de la gare" size="30" maxlength="10" /><br/>
 	
 <input type="submit" value="Ajouter" />
 
@@ -21,6 +21,6 @@
 
 </form>
 
-<a href = "bonjour.php"> Retour a la liste </a></br>
+<a href = "index.php"> Retour a la liste </a></br>
  </body>
 </html> 

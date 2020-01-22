@@ -5,13 +5,13 @@
  <body>
  <?php echo '<p>Bonjour le monde</p>'; ?>
 
-Bonjour, Ton prenom est <?php echo htmlspecialchars($_POST['prenom']); ?>.
-Et ton nom est <?php echo $_POST['nom']; ?> .
+Nom de la guare <?php echo htmlspecialchars($_POST['nom']); ?>.
+Ville de la guare <?php echo $_POST['ville']; ?> .
 
  <?php
 include 'configDb.php';
-$Xnom = $_POST['prenom'];
-$Xprenom = $_POST['nom'];
+$Xnom = $_POST['nom'];
+$Xprenom = $_POST['ville'];
 
 
 
@@ -24,12 +24,12 @@ if ($conn->connect_error) {
 
 echo 'Test';
 echo $Xnom;
-$sql = "INSERT INTO stagiaire (nom, prenom) VALUES ('$Xnom', '$Xprenom')";
+$sql = "INSERT INTO gare (nom, ville) VALUES ('$Xnom', '$Xville')";
 $result = $conn->query($sql);
 
 $conn->close();
 ?>
 
-<a href = "bonjour.php"> Retour a la liste </a></br>
+<a href = "index.php"> Retour a la liste </a></br>
  </body>
 </html> 
