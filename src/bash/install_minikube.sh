@@ -14,3 +14,11 @@ curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/miniku
 chmod +x minikube
 sudo mv minikube /usr/local/bin/ 
 mkdir -p /var/lib/mysql
+
+
+
+#Add kustomize tool
+
+curl -s "https://raw.githubusercontent.com/\
+kubernetes-sigs/kustomize/master/hack/install_kustomize.sh"  | bash
+mv kustomize /usr/local/bin/

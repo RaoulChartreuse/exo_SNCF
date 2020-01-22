@@ -16,7 +16,7 @@ spec:
         app: db
     spec:
       containers:
-      - image: laurentmorin/exo_sncf_db:3
+      - image: laurentmorin/exo_sncf_db
         name: mysql
         env:
           # Use secret in real usage
@@ -56,7 +56,7 @@ spec:
     spec:
 
       containers:
-      - image: laurentmorin/exo_sncf_httpdserver:3
+      - image: laurentmorin/exo_sncf_httpdserver
         name: web
         ports:
         - containerPort: 80
