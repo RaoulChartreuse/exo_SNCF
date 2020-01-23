@@ -1,4 +1,4 @@
-﻿\section{Automatisation du serveur de prod}
+﻿*\section{Automatisation du serveur de prod}
 Le principe de ce serveur est d'utiliser les conteneurs du serveur dev un fois ceux-ci validé.
 Et de les utiliser avec kubernetes.
 
@@ -35,6 +35,12 @@ Il sera déclenché par une surveillance de la branche master qui déclenchera l
 \item Envoie des images sur dockerHub avec un tag unique
 \item Sur le serveur de prod~: mise à jours du cluster kurbernetes pour utiliser les nouvelles images
 \end{itemize}
+
+On ces 2 scripts exécutés par Jenkins respectivement sur le dev et le prod~:
+
+\lstinputlisting[language=bash]{../src/jenkins/master_dev.sh}
+
+\lstinputlisting[language=bash]{../src/jenkins/master_prod.sh}
 
 \subsubsection{Gestion des tags}
 Pour la gestion des tag, nous avons décidé de ne pas les gérer manuellement.
