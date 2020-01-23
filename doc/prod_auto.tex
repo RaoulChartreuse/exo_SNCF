@@ -1,5 +1,5 @@
-\section{Automatisation du serveur de prod}
-Le principe de ce serveur est d'utiliser les conteneurs du serveur dev un fois ceux-ci valider.
+﻿\section{Automatisation du serveur de prod}
+Le principe de ce serveur est d'utiliser les conteneurs du serveur dev un fois ceux-ci validé.
 Et de les utiliser avec kubernetes.
 
 \subsection{Installation de minikube et kubectl avec ansible}
@@ -8,11 +8,54 @@ L'installation de minikube et kubectl est obtenue avec  un playbook ansible qui 
 \lstinputlisting[language=bash]{../src/bash/install_minikube.sh}
 
 \subsection{Configuration de kubernetes}
-Le pod php-apache peut contacter la base de donnée en utilisant la variable servername=db.
+La configuration de kubernetes est obtenue par l'écriture des fichier de configuration décrivant les volumes, les déploiements et les services.
+
+\subsubsection{Volume}
+
+\lstinputlisting[]{../src/k8s/volume.yml}
+
+\subsubsection{Deployment}
+La gestion des tags des images utilisées sera décrite plus tard \ref{prod_jenkins}.
+\lstinputlisting[]{../src/k8s/deploy.yml}
+
+\subsubsection{Service}
+Le pod php-apache peut contacter la base de donnée en utilisant la variable servername=db,
+on conserve ainsi le même ficher de configuration entre le serveur dev et le serveur prod.
 
 \lstinputlisting[language=php]{../src/php/configDb.php}
 
-\sout{\LARGE A faire}
+\lstinputlisting[]{../src/k8s/svc.yml}
 
-L'utilisateur user n'existe plus dans la base de donnée !
-Corriger en suprimant l'image docker sur dockerHub et en la réuploadant.
+\subsection{Déploiement continue avec Jenkins}
+\label{prod_jenkins}
+Le déploiement sera géré par Jenkins.
+Il sera déclenché par une surveillance de la branche master qui déclenchera les actions suivantes~:
+\begin{itemize}
+\item Construction des dernières versions des images docker
+\item Envoie des images sur dockerHub avec un tag unique
+\item Sur le serveur de prod~: mise à jours du cluster kurbernetes pour utiliser les nouvelles images
+\end{itemize}
+
+\subsubsection{Gestion des tags}
+Pour la gestion des tag, nous avons décidé de ne pas les gérer manuellement.
+Ils se trouvent dans plusieurs fichiers différent, leurs gestion manuelle apportent un risque de défaillance inutiles.
+
+Nous utiliseront le hash de du dernier commit git,  ce qui a l'avantage d’être unique.
+
+Pour modifier les tags utiliser dans le fichier deploy.yml du Kubernetes,
+nous utiliseront un outil kustomize qui permets d'appliquer un patch au fichier de configuration.
+
+\lstinputlisting[]{../src/k8s/kustomization.yml}
+
+\subsubsection{Script sur le serveur d'intègration}
+Ce script pousse les images à jour sur DockerHub.
+L'authentification ce fait avec un mots de passe sur la machine.
+Une authentification par token serai préférable.
+
+\lstinputlisting[language=bash]{../src/bash/on_update.sh}
+
+\subsubsection{Script sur le serveur prod}
+Ce script récupère les images et applique le patch kustomize pour demander à Kubernetes de changer de version des images.
+
+\lstinputlisting[language=bash]{../src/bash/update_prod.sh}
+

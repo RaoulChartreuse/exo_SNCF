@@ -1,0 +1,38 @@
+﻿\section{Conclusion}
+Nous avons réussi à obtenir le fonctionnement de l'application tant sur le serveur de dev que sur le serveur de prod.
+Nous avons réussi à obtenir une automatisation de l'intégration que ce soit sur un serveur de développement que sur un serveur de production.
+Cela en utilisant la technologie docker-compose qui à l'avantage d'être simples à mettre en oeuvre,
+et la technologie Kubernetes qui est plus adaptée à un environnements de production par exemple avec la réplication des pods.
+
+Il y a encore de nombreuse amélioration possible.
+Les voici en vrac sans ordres de priorités~:
+
+\subsection{Jenkins}
+Les scripts sont écrit à l'aide de l'interface graphique de Jenkins.
+Le passage aux scripts textes aurait l'avantage de permettre un versionnent de ceux-ci et
+une mise en place facilitée sur un autre serveur Jenkins.
+
+\subsection{Kubernetes}
+Les mises à jours sont obtenue à partir d'un script qui s'exécute sur le
+serveur de prod.
+Il serait préférable d'utiliser l'api Kubernetes depuis le serveur d’intégration.
+Cela aurait aussi l'avantage de permettre un monitoring et une modification de la configuration en fonction de la charge.
+
+\subsection{DockerHub}
+L'authentification avec DockerHub ce fait par un mot de passe.
+On pourrait créer un token.
+
+Le problème principale et le fait que les images sont public.
+Il faudrait souscrire à DockerHub pour pouvoir conserver plusieurs images privées.
+Comme nous n'avons pas besoin de diffuser ses images,
+il est plus raisonnable de mettre en place un serveurs registry pour docker.
+
+
+\subsection{Le code php}
+Le code php utiliser ici est une simple ébauche pour vérifier le fonctionnement de l'application php et la connexion et la modification de la base de donné.
+
+L'application doit être écrite maintenant.
+
+\subsection{La base de donnée}
+La sauvegarde de la base de donnée n'est pas prise en charge actuellement.
+La sauvegarde et l’automatisation sont des fonctionnalités à implémenter dans une possible suite au projet.
